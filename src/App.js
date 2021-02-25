@@ -12,6 +12,7 @@ export default function App() {
       <Router>
         <Container>
           <Header />
+          
           <Switch>
             <Route path="/room">
               <Chat />
