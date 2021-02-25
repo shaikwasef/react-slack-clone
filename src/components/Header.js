@@ -27,7 +27,11 @@ function Header() {
   );
 }
 
-const Container = styled.div``;
+const Container = styled.div`
+  background-color : #350d36;
+  color : white;
+  display : flex;
+`;
 
 const Main = styled.div`
   display: flex;
@@ -37,7 +41,9 @@ const SearchContainer = styled.div``;
 
 const Search = styled.div``;
 
-const UserContainer = styled.div``;
+const UserContainer = styled.div`
+display : flex
+`;
 
 const Name = styled.div``;
 
