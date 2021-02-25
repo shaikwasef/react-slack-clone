@@ -32,27 +32,36 @@ const Container = styled.div`
   color : white;
   display : flex;
   align-items : center ;
-  justify-content : space-between;
+  justify-content : center;
+  position : relative ;
+  box-shadow : 0 1px 0 0 rgb(255 255 255 / 10%);
 `;
 
 const Main = styled.div`
   display: flex;
+  margin-right : 16px ;
+  margin-left : 16px;
 `;
 
 const SearchContainer = styled.div`
-  min-width : 100px;
-  width : 400px;
+  min-width : 400px;
+  margin-left : 16px ;
+  margin-right : 16px ;
 `;
 
 const Search = styled.div`
   box-shadow : inset 0 0 0 1px rgb(104 74 104);
   width : 100% ;
   border-radius : 6px ;
+  display : flex ;
+  align-items : center;
 
   input { background-color : transparent ;
   border : none ;
   padding-right : 8px;
   padding-left : 8px ;
+  padding-top : 4px ;
+  padding-bottom : 4px ;
   color : white;}
 
   input:focus {
@@ -63,10 +72,24 @@ const Search = styled.div`
 const UserContainer = styled.div`
   display : flex;
   align-items : center ;
+  padding-right : 16px;
+  position : absolute ;
+  right : 0 ;
 `;
 
-const Name = styled.div``;
+const Name = styled.div`
+margin-right : 10px ;`;
 
-const UserImage = styled.div``;
+const UserImage = styled.div`
+  width : 28px ;
+  height : 28px ;
+
+  border : 2px solid white ;
+  border-radius : 3px ;
+
+  img {
+    width : 100% ;
+  }
+`;
 
 export default Header;
