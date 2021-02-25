@@ -4,6 +4,12 @@ import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 
 function Chat() {
+  const darkmode = true ;
+
+  function change() {
+    darkmode =  !darkmode ;
+  }
+
   return (
     <Container>
     <HeaderSection>
@@ -26,10 +32,12 @@ function Chat() {
 export default Chat;
 
 const Container = styled.div`
-margin : 10px 15px 0px 15px ;`;
+`;
 
 const HeaderSection = styled.div`
-border-bottom : 2px solid #C1C1C1 ;`;
+border-bottom : 2px solid #C1C1C1 ;
+margin : 10px 15px 0px 15px ;
+;`;
 
 const Channel_name = styled.div`
 display : flex ;
