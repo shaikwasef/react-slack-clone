@@ -15,8 +15,14 @@ function Header() {
         </SearchContainer>
         <HelpOutlineIcon />
       </Main>
-      {/*<UserContainer>
-      </UserContainer>*/}
+      <UserContainer>
+        <Name>
+        Harry Potter
+        </Name>
+        <UserImage>
+
+        </UserImage>
+      </UserContainer>
     </Container>
   );
 }
@@ -30,5 +36,7 @@ const Main = styled.div`
 const SearchContainer = styled.div``;
 
 const Search = styled.div``;
+
+const UserContainer = styled.div``;
 
 export default Header;
