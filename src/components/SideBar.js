@@ -1,17 +1,28 @@
 import React from "react";
 import styled from "styled-components";
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+import {sidebarItemsData} from '../data/SideBarData';
 
 function SideBar() {
   return (<Container>
       <WorkSpaceContainer>
         <Name>
-          Clever Programmer 
+          CleverProgrammer 
         </Name>
           <NewMessage>
            <AddCircleOutlineIcon/>
           </NewMessage>
       </WorkSpaceContainer>
+      <MainChannels>
+        {
+          sidebarItemsData.map(item => (
+            <MainChannelItem>
+              {item.icon} 
+              {item.text} 
+            </MainChannelItem>
+          ))
+        }
+      </MainChannels>
     </Container>);
 }
 
@@ -22,12 +33,12 @@ const Container = styled.div`
 `;
 
 const WorkSpaceContainer = styled.div`
-color : white;
-height : 64px;
-display : flex;
-align-items : center ;
-padding-left : 19px ;
-justify-content : space-between ;
+  color : white;
+  height : 64px;
+  display : flex;
+  align-items : center ;
+  padding-left : 19px ;
+  justify-content : space-between ;
 `;
 
 const Name = styled.div`
@@ -44,4 +55,14 @@ const NewMessage = styled.div`
   border-radius : 50% ;
   margin-right : 20px ;
   cursor : pointer ;
+`;
+
+const MainChannels = styled.div``;
+
+const MainChannelItem = styled.div`
+  color : rgb(188,171,188);
+  display : grid ;
+  grid-template-columns : 15% auto ;
+  height : 28px ;
+  align-items : center ;
 `;
