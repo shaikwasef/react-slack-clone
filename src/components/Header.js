@@ -20,7 +20,7 @@ function Header() {
         Harry Potter
         </Name>
         <UserImage>
-
+          <img src = "../images/Harry.jpg" />
         </UserImage>
       </UserContainer>
     </Container>
@@ -40,5 +40,7 @@ const Search = styled.div``;
 const UserContainer = styled.div``;
 
 const Name = styled.div``;
+
+const UserImage = styled.div``;
 
 export default Header;
