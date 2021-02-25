@@ -9,7 +9,7 @@ export default function App() {
       <Router>
         <Switch>
           <Route path = "/room">
-              Chat Page
+              <Chat />
             </Route>
             <Route path = "/">
               Login Page
