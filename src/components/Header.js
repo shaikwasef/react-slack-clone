@@ -20,7 +20,7 @@ function Header() {
         Harry Potter
         </Name>
         <UserImage>
-          <img src = "../images/Harry.jpg" />
+          <img src = "https://i.imgur.com/6VBx3io.png" />
         </UserImage>
       </UserContainer>
     </Container>
@@ -31,6 +31,8 @@ const Container = styled.div`
   background-color : #350d36;
   color : white;
   display : flex;
+  align-items : center ;
+  justify-content : space-between;
 `;
 
 const Main = styled.div`
