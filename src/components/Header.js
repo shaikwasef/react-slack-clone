@@ -8,12 +8,12 @@ function Header() {
     <Container>
       <Main>
         <AccessTimeIcon />
-        <HelpOutlineIcon />
         <SearchContainer>
           <Search>
             <input type="text" placeholder="Search...." />
           </Search>
         </SearchContainer>
+        <HelpOutlineIcon />
       </Main>
       {/*<UserContainer>
       </UserContainer>*/}
