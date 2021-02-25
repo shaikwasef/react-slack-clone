@@ -65,4 +65,6 @@ const MainChannelItem = styled.div`
   grid-template-columns : 15% auto ;
   height : 28px ;
   align-items : center ;
+  padding-left : 19px ;
+  cursor : pointer ;
 `;

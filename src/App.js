@@ -39,7 +39,7 @@ const Container = styled.div`
 `;
 
 const Main = styled.div`
-  background-color: blue;
+  background-color: white;
   display: grid;
   grid-template-columns : 260px auto;
 `;
