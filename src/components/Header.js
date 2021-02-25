@@ -39,12 +39,17 @@ const Main = styled.div`
   display: flex;
 `;
 
-const SearchContainer = styled.div``;
+const SearchContainer = styled.div`
+  min-width : 100px;
+  width : 400px;
+`;
 
-const Search = styled.div``;
+const Search = styled.div`
+  width : 100% ;
+`;
 
 const UserContainer = styled.div`
-  display : flex
+  display : flex;
   align-items : center ;
 `;
 
