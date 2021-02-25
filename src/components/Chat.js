@@ -4,12 +4,6 @@ import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 
 function Chat() {
-  const darkmode = true ;
-
-  function change() {
-    darkmode =  !darkmode ;
-  }
-
   return (
     <Container>
     <HeaderSection>
