@@ -10,7 +10,7 @@ function Header() {
         <AccessTimeIcon />
         <SearchContainer>
           <Search>
-            <input type="text" placeholder="Search...." />
+            <input style = {{  width : "100%" }}type="text" placeholder="Search...." />
           </Search>
         </SearchContainer>
         <HelpOutlineIcon />
