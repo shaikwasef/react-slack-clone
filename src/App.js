@@ -5,6 +5,7 @@ import Chat from "./components/Chat";
 import Login from "./components/Login.js";
 import styled from "styled-components";
 import Header from "./components/Header";
+import SideBar from "./components/SideBar";
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <Container>
           <Header />
           <Main>
+            <SideBar />
             <Switch>
               <Route path="/room">
                 <Chat />
@@ -32,11 +34,12 @@ const Container = styled.div`
   width: 100%;
   height: 100vh;
   background-color: orange;
-  display : grid ;
-  grid-template-rows :38px auto;
+  display: grid;
+  grid-template-rows: 38px auto;
 `;
 
 const Main = styled.div`
-  background-color : blue ;
-
+  background-color: blue;
+  display: grid;
+  grid-template-columns : 260px auto;
 `;
