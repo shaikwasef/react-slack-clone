@@ -6,7 +6,7 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 function Chat() {
   return (
     <Container>
-      <Description>
+      <Channel_name>
         <NameContainer>
           <Name>#clever</Name>
           <StarBorderIcon    style = {{fontSize : "medium"}}/>
@@ -15,19 +15,22 @@ function Chat() {
           <Details>Details</Details>
           <InfoOutlinedIcon  />
         </DetailsContainer>
-      </Description>
+      </Channel_name>
+      <Description> Company-wide announcements and work-based matters</Description>
     </Container>
   );
 }
 
 export default Chat;
 
-const Container = styled.div``;
+const Container = styled.div`
+margin : 10px 15px 0px 15px ;`;
 
-const Description = styled.div`
+const Channel_name = styled.div`
 display : flex ;
 align-items : center ;
-margin : 10px 10px 0px 10px ;
+justify-content : space-between ;
+
 ` ;
 
 const NameContainer = styled.div`
@@ -44,11 +47,19 @@ const Name = styled.div`
 `;
 
 const Details = styled.div`
+margin-right : 10px ;
 `;
 
 const DetailsContainer = styled.div`
 color : #C1C1C1;
 display : flex ;
 align-items : center ;
+`;
+
+const Description = styled.div`
+color : #C1C1C1;
+display : flex ;
+align-items : center ;
+margin-top : 10px ;
 `;
 
