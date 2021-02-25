@@ -6,6 +6,7 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 function Chat() {
   return (
     <Container>
+    <HeaderSection>
       <Channel_name>
         <NameContainer>
           <Name>#clever</Name>
@@ -17,6 +18,7 @@ function Chat() {
         </DetailsContainer>
       </Channel_name>
       <Description> Company-wide announcements and work-based matters</Description>
+      </HeaderSection>
     </Container>
   );
 }
@@ -25,6 +27,9 @@ export default Chat;
 
 const Container = styled.div`
 margin : 10px 15px 0px 15px ;`;
+
+const HeaderSection = styled.div`
+border-bottom : 2px solid #C1C1C1 ;`;
 
 const Channel_name = styled.div`
 display : flex ;
@@ -61,5 +66,6 @@ color : #C1C1C1;
 display : flex ;
 align-items : center ;
 margin-top : 10px ;
+margin-bottom : 10px ;
 `;
 
