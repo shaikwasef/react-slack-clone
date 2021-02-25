@@ -15,5 +15,13 @@ function Chat() {
 
 export default Chat;
 
-const Container = styled.div`` ;
-const NamedContainer = styled.div`` ;
+const Container = styled.div`
+display : flex;
+` ;
+const NameContainer = styled.div`
+display : flex ;
+align - items : center ;
+justify-content : space-between ; 
+` ;
+const Name = styled.div`` ;
+const Details = styled.div`` ;
