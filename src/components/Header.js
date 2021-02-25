@@ -54,6 +54,10 @@ const Search = styled.div`
   padding-right : 8px;
   padding-left : 8px ;
   color : white;}
+
+  input:focus {
+    outline : none;
+  }
 `;
 
 const UserContainer = styled.div`
