@@ -34,4 +34,14 @@ const Name = styled.div`
 `;
 
 const NewMessage = styled.div`
+  width : 36px ;
+  height : 36px ;
+  background-color : white ;
+  color : #3F0E40 ;
+  display : flex ;
+  align-items : center ;
+  justify-content : center ;
+  border-radius : 50% ;
+  margin-right : 20px ;
+  cursor : pointer ;
 `;
