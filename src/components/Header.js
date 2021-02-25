@@ -44,7 +44,8 @@ const SearchContainer = styled.div``;
 const Search = styled.div``;
 
 const UserContainer = styled.div`
-display : flex
+  display : flex
+  align-items : center ;
 `;
 
 const Name = styled.div``;
