@@ -39,4 +39,6 @@ const Search = styled.div``;
 
 const UserContainer = styled.div``;
 
+const Name = styled.div``;
+
 export default Header;
