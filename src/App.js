@@ -6,8 +6,18 @@ import Login from "./components/Login.js";
 import styled from "styled-components";
 import Header from "./components/Header";
 import SideBar from "./components/SideBar";
+import db from './firebase';
 
 export default function App() {
+
+  const getChannels = () => {
+    db.collection('rooms').onSnapshot((snapshot)=> {
+      console.log(snapshot.docs);
+    })
+  } ;
+
+  
+
   return (
     <div className="App">
       <Router>
