@@ -6,6 +6,7 @@ import {channels} from '../data/SideBarData'
 import AddIcon from '@material-ui/icons/Add';
 import db from '../firebase';
 
+
 function SideBar(props) {
 
   const addChannel = () => {

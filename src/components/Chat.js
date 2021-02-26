@@ -2,23 +2,32 @@ import React from "react";
 import styled from "styled-components";
 import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
 import StarBorderIcon from '@material-ui/icons/StarBorder';
+import ChatInput from './ChatInput';
+import ChatMessage from './ChatMessage';
 
 function Chat() {
   return (
     <Container>
-    <HeaderSection>
-      <Channel_name>
-        <NameContainer>
-          <Name>#clever</Name>
-          <StarBorderIcon    style = {{fontSize : "medium"}}/>
-        </NameContainer>
-        <DetailsContainer>
-          <Details>Details</Details>
-          <InfoOutlinedIcon  />
-        </DetailsContainer>
-      </Channel_name>
-      <Description> Company-wide announcements and work-based matters</Description>
-      </HeaderSection>
+      <Header>
+        <Channel>
+          <ChannelName>
+            #Clever
+          </ChannelName>
+          <ChannelInfo>
+          Company wide announcements
+          </ChannelInfo>
+        </Channel>
+        <ChannelDetails>
+          <div>
+            Details
+          </div>
+          <Info />
+        </ChannelDetails>
+      </Header>
+      <MessageContainer>
+        <ChatMessage/>
+      </MessageContainer>
+      <ChatInput/>
     </Container>
   );
 }
@@ -26,48 +35,45 @@ function Chat() {
 export default Chat;
 
 const Container = styled.div`
+    display: grid;
+    grid-template-rows: 64px auto min-content;
+    min-height: 0;
 `;
 
-const HeaderSection = styled.div`
-border-bottom : 2px solid #C1C1C1 ;
-margin : 10px 15px 0px 15px ;
-;`;
-
-const Channel_name = styled.div`
+const Header = styled.div`
+padding-left : 20px ;
+padding-right : 20px ;
 display : flex ;
 align-items : center ;
-justify-content : space-between ;
+border-bottom : 1px solid rgba(83,39,83,.13) ;
+justify-content : space-between;
+`;
 
-` ;
+const MessageContainer = styled.div`
 
-const NameContainer = styled.div`
+`;
+
+
+
+const ChannelDetails = styled.div`
 display : flex ;
 align-items : center ;
-font-weight: bolder;
+color : #606060 ;
 `;
 
-const Name = styled.div`
-  display : flex ;
-  flex-wrap : wrap ;
-  align-items : center ;
-  font-size : 20px ;
+const ChannelName = styled.div`
+font-weight : 700`;
+
+const Channel= styled.div``;
+
+const ChannelInfo = styled.div`
+font-weight : 400 ;
+color : #606060 ;
+font-size : 13px ;
+margin-top : 8px ;
 `;
 
-const Details = styled.div`
-margin-right : 10px ;
-`;
-
-const DetailsContainer = styled.div`
-color : #C1C1C1;
-display : flex ;
-align-items : center ;
-`;
-
-const Description = styled.div`
-color : #C1C1C1;
-display : flex ;
-align-items : center ;
-margin-top : 10px ;
-margin-bottom : 10px ;
-`;
+const Info = styled(InfoOutlinedIcon)`
+  margin-left : 10px ;
+`; 
 
