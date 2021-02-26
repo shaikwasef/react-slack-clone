@@ -7,16 +7,27 @@ import styled from "styled-components";
 import Header from "./components/Header";
 import SideBar from "./components/SideBar";
 import db from './firebase';
+import {useEffect , useState} from "react";
 
 export default function App() {
 
+  const [rooms,setRooms] = useState([]);
+
   const getChannels = () => {
     db.collection('rooms').onSnapshot((snapshot)=> {
-      console.log(snapshot.docs);
-    })
-  } ;
+      setRooms(snapshot.docs.map((doc)=>{
+          return {
+              id : doc.id,
+              name : doc.data().name
+          }}
+      ))
+  })};
 
-  
+  useEffect(() => {
+    getChannels();
+  } , []);
+
+  console.log(rooms);
 
   return (
     <div className="App">
@@ -24,7 +35,7 @@ export default function App() {
         <Container>
           <Header />
           <Main>
-            <SideBar />
+            <SideBar rooms = {rooms}/>
             <Switch>
               <Route path="/room">
                 <Chat />
