@@ -1,11 +1,23 @@
-import React from "react";
-import styled from "styled-components";
+import React , {useState} from "react";
+import styled , {Themeprovider} from "styled-components";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 
+
 function Header ({ user ,signOut }) {
+
+  const [headerTheme , setHeaderTheme] = useState("#350d36");
+
+  const changeLook = () => {
+     (headerTheme =="#350d36") ? setHeaderTheme("black") : setHeaderTheme("#350d36");
+  };
+
   return (
-    <Container>
+    <Container background = {headerTheme}>
+      <CheckBoxWrapper>
+        <CheckBox id="checkbox" type="checkbox" onChange = {changeLook} />
+        <CheckBoxLabel htmlFor="checkbox"  />
+      </CheckBoxWrapper>
       <Main>
         <AccessTimeIcon />
           <SearchContainer>
@@ -23,12 +35,13 @@ function Header ({ user ,signOut }) {
           <img src = {user.photo ? user.photo : "https://i.imgur.com/6VBx3io.png"} />
         </UserImage>
       </UserContainer>
+
     </Container>
   );
 }
 
 const Container = styled.div`
-  background-color : #350d36;
+  background-color : ${props => props.background ? props.background : "#350d36"}; 
   color : white;
   display : flex;
   align-items : center ;
@@ -93,4 +106,51 @@ const UserImage = styled.div`
   cursor : pointer ;
 `;
 
+const CheckBoxWrapper = styled.div`
+  position: absolute;
+  left : 10px ;
+`;
+const CheckBoxLabel = styled.label`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 42px;
+  height: 26px;
+  border-radius: 15px ;
+  background: #b3b3b3;
+  border : 2px solid red;
+  cursor: pointer;
+  &::after {
+    content: "";
+    display: block;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    margin: 3px;
+    background: #ffffff;
+    box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.2);
+    transition: 0.2s;
+  }
+`;
+const CheckBox = styled.input`
+  opacity: 0;
+  z-index: 1;
+  border-radius: 15px;
+  width: 42px;
+  height: 26px;
+  &:checked + ${CheckBoxLabel} {
+    background: #000000;
+    &::after {
+      content: "";
+      display: block;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      margin-left: 21px;
+      transition: 0.2s;
+    }
+  }
+`;
+
 export default Header;
+

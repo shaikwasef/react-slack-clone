@@ -36,6 +36,7 @@ export default function App() {
     })
   };
 
+
   return (
     <div className="App">
       <Router>
@@ -44,9 +45,9 @@ export default function App() {
           <Login setUser = {setUser}/>
           :
           <Container>
-            <Header signOut = {signOut} user = {user}/>
+            <Header signOut = {signOut} user = {user} />
             <Main>
-              <SideBar rooms={rooms}/>
+              <SideBar rooms={rooms} />
               <Switch>
                 <Route path="/room/:channelId">
                   <Chat user = {user}/>

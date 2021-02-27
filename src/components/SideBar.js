@@ -69,7 +69,7 @@ function SideBar(props) {
 export default SideBar;
 
 const Container = styled.div`
-  background : #3F0E40
+    background-color : #3E014B ;
 `;
 
 const WorkSpaceContainer = styled.div`
