@@ -1,17 +1,55 @@
-import React from "react";
+import React , {useEffect , useState} from "react";
 import styled from "styled-components";
 import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
-import StarBorderIcon from '@material-ui/icons/StarBorder';
 import ChatInput from './ChatInput';
 import ChatMessage from './ChatMessage';
+import db from '../firebase'
+import {useParams} from "react-router-dom";
+import firebase from 'firebase'
 
-function Chat() {
+function Chat(props) {
+
+  let {channelId} = useParams();
+  const [ channel , setChannel ] = useState();
+  const [messages , setMessages] = useState([]);
+
+  const getChannel = () => {
+    db.collection('rooms').doc(channelId).onSnapshot((snapshot) => {
+      setChannel(snapshot.data());
+    })
+  }
+
+  const getMessages = () => {
+    db.collection('rooms').doc(channelId).collection('messages').orderBy('timeStamp','asc').onSnapshot((snapshot) => {
+      let messages = snapshot.docs.map((doc) => doc.data());
+      console.log(messages);
+      setMessages(messages);
+    })
+  }
+
+  const sendMessage = (text) => {
+    if(channelId){
+      let payload = {
+        text : text ,
+        user : props.user.name ,
+        userImage : props.user.photo ,
+        timeStamp : firebase.firestore.Timestamp.now()
+      }
+      db.collection('rooms').doc(channelId).collection('messages').add(payload);
+    }
+  }
+
+  useEffect(() => {
+      getChannel();
+      getMessages();
+      },[channelId]);
+
   return (
     <Container>
       <Header>
         <Channel>
           <ChannelName>
-            #Clever
+            # {channel && channel.name}
           </ChannelName>
           <ChannelInfo>
           Company wide announcements
@@ -25,9 +63,19 @@ function Chat() {
         </ChannelDetails>
       </Header>
       <MessageContainer>
-        <ChatMessage/>
+        {
+          messages.length > 0 &&
+          messages.map((data,index) => (
+              <ChatMessage 
+              text = {data.text}
+              name = {data.user}
+              image = {data.userImage}
+              timeStamp = {data.timeStamp}
+              />
+          ))
+        }
       </MessageContainer>
-      <ChatInput/>
+      <ChatInput sendMessage = {sendMessage}/>
     </Container>
   );
 }
@@ -50,7 +98,9 @@ justify-content : space-between;
 `;
 
 const MessageContainer = styled.div`
-
+  display : flex ;
+  flex-direction : column ;
+  overflow-y : scroll ;
 `;
 
 

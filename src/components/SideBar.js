@@ -5,6 +5,7 @@ import {sidebarItemsData} from '../data/SideBarData';
 import {channels} from '../data/SideBarData'
 import AddIcon from '@material-ui/icons/Add';
 import db from '../firebase';
+import {useHistory} from 'react-router-dom';
 
 
 function SideBar(props) {
@@ -17,6 +18,14 @@ function SideBar(props) {
       })
     }
   };
+
+  const history = useHistory();
+
+  const goToChannel = (id) => {
+    if(id){(
+      history.push(`/room/${id}`))
+    }};
+
 
   return (<Container>
       <WorkSpaceContainer>
@@ -47,7 +56,7 @@ function SideBar(props) {
           <ChannelsList>
             {
               props.rooms.map(item => (
-              <Channel>
+              <Channel onClick = {() => goToChannel(item.id) } >
                 #{item.name}
               </Channel>
               ))
