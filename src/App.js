@@ -12,6 +12,7 @@ import {useEffect , useState} from "react";
 export default function App() {
 
   const [rooms,setRooms] = useState([]);
+  const [user , setUser] = useState() ;
 
   const getChannels = () => {
     db.collection('rooms').onSnapshot((snapshot)=> {
@@ -27,25 +28,27 @@ export default function App() {
     getChannels();
   } , []);
 
-  console.log(rooms);
+  console.log("User in app state",user);
 
   return (
     <div className="App">
       <Router>
-        <Container>
-          <Header />
-          <Main>
-            <SideBar rooms = {rooms}/>
-            <Switch>
-              <Route path="/room">
-                <Chat />
-              </Route>
-              <Route path="/">
-                <Login />
-              </Route>
-            </Switch>
-          </Main>
-        </Container>
+        {
+          !user ? 
+          <Login setUser = {setUser}/>
+          :
+          <Container>
+            <Header />
+            <Main>
+              <SideBar rooms = {rooms}/>
+              <Switch>
+                <Route path="/room">
+                  <Chat />
+                </Route>
+              </Switch>
+            </Main>
+          </Container>
+        }
       </Router>
     </div>
   );
