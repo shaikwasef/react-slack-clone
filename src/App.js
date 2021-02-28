@@ -14,6 +14,7 @@ export default function App() {
 
   const [rooms,setRooms] = useState([]);
   const [user , setUser] = useState(JSON.parse(localStorage.getItem('user'))) ;
+  const [sideBarTheme , setSideBarTheme] = useState("#3E014B");
 
   const getChannels = () => {
     db.collection('rooms').onSnapshot((snapshot)=> {
@@ -36,6 +37,10 @@ export default function App() {
     })
   };
 
+  const darkMode = () => {
+    (sideBarTheme == "#3E014B")? setSideBarTheme("black") : setSideBarTheme("#3E014B") ;
+  };
+
 
   return (
     <div className="App">
@@ -45,9 +50,9 @@ export default function App() {
           <Login setUser = {setUser}/>
           :
           <Container>
-            <Header signOut = {signOut} user = {user} />
+            <Header signOut = {signOut} user = {user} darkMode = {darkMode}/>
             <Main>
-              <SideBar rooms={rooms} />
+              <SideBar rooms={rooms} sideBarTheme = {sideBarTheme} />
               <Switch>
                 <Route path="/room/:channelId">
                   <Chat user = {user}/>

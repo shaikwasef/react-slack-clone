@@ -4,19 +4,20 @@ import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 
 
-function Header ({ user ,signOut }) {
+function Header ({user ,signOut , darkMode}) {
 
   const [headerTheme , setHeaderTheme] = useState("#350d36");
 
   const changeLook = () => {
      (headerTheme =="#350d36") ? setHeaderTheme("black") : setHeaderTheme("#350d36");
+     darkMode();
   };
 
   return (
     <Container background = {headerTheme}>
       <CheckBoxWrapper>
-        <CheckBox id="checkbox" type="checkbox" onChange = {changeLook} />
-        <CheckBoxLabel htmlFor="checkbox"  />
+        <CheckBox  id="checkbox" type="checkbox" onChange = {changeLook} />
+        <CheckBoxLabel title = "Toggle theme" htmlFor="checkbox"  />
       </CheckBoxWrapper>
       <Main>
         <AccessTimeIcon />

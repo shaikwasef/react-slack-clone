@@ -10,6 +10,8 @@ import {useHistory} from 'react-router-dom';
 
 function SideBar(props) {
 
+  const theme = props.sideBarTheme ;
+
   const addChannel = () => {
     const promptName = prompt("Enter channel name");
     if(promptName != null){
@@ -27,7 +29,7 @@ function SideBar(props) {
     }};
 
 
-  return (<Container>
+  return (<Container background = {theme}>
       <WorkSpaceContainer>
         <Name>
           CleverProgrammer 
@@ -69,7 +71,7 @@ function SideBar(props) {
 export default SideBar;
 
 const Container = styled.div`
-    background-color : #3E014B ;
+    background-color : ${props => props.background} ;
 `;
 
 const WorkSpaceContainer = styled.div`
