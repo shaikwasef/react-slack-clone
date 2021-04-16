@@ -32,7 +32,7 @@ function SideBar(props) {
   return (<Container background = {theme}>
       <WorkSpaceContainer>
         <Name>
-          CleverProgrammer 
+          ShaikWasef_slack_clone 
         </Name>
           <NewMessage>
            <AddCircleOutlineIcon/>
