@@ -11,12 +11,20 @@ const firebaseConfig = {
   measurementId: "G-V3QHT1D419"
 };
 
+//Initialize the firebase config
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
+//Get Access to the firebase Store
 const db = firebaseApp.firestore() ;
+
+//Authenticate firebase
 const auth = firebase.auth();
+
+//Provider for google authentication
 const provider = new firebase.auth.GoogleAuthProvider() ;
 
+//export the database
 export default db ;
 
+//export the authenticator and google authentication provider
 export {auth,provider};

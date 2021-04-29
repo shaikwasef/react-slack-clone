@@ -1,6 +1,8 @@
+//Comments
 import React from "react";
 import styled from "styled-components";
 
+//ChatMessage component to display chat messages
 function ChatMessage(props) {
     return (
         <Container>

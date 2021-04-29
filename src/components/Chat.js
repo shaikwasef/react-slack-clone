@@ -1,3 +1,4 @@
+//Comments
 import React , {useEffect , useState} from "react";
 import styled from "styled-components";
 import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
@@ -7,26 +8,32 @@ import db from '../firebase'
 import {useParams} from "react-router-dom";
 import firebase from 'firebase'
 
+//Chat component
 function Chat(props) {
 
-  let {channelId} = useParams();
+  //channelID is loaded with history.push() in the URL by SideBar.js and useParams then utilises the ID of the URL
+  let {channelId} = useParams(); //Need to add :channelId in route path
+  
   const [ channel , setChannel ] = useState();
   const [messages , setMessages] = useState([]);
 
+  //Gets the channel data for channelID fetched using useParams()
   const getChannel = () => {
     db.collection('rooms').doc(channelId).onSnapshot((snapshot) => {
       setChannel(snapshot.data());
     })
   }
 
+  //getsMessages from the friebase database for the channel ID fetched using useParams
   const getMessages = () => {
     db.collection('rooms').doc(channelId).collection('messages').orderBy('timeStamp','asc').onSnapshot((snapshot) => {
       let messages = snapshot.docs.map((doc) => doc.data());
-      console.log(messages);
       setMessages(messages);
     })
   }
 
+  //sendMessage function is used to add payload and send data to the database of the channelId
+  //sendMessage is passed as a prop to the chat Input component
   const sendMessage = (text) => {
     if(channelId){
       let payload = {
@@ -39,6 +46,7 @@ function Chat(props) {
     }
   }
 
+  //UseEffect will run the functions getChannel and getMessages for any change in channelId
   useEffect(() => {
       getChannel();
       getMessages();
@@ -52,7 +60,7 @@ function Chat(props) {
             # {channel && channel.name}
           </ChannelName>
           <ChannelInfo>
-          Company wide announcements
+          Your favourite Channel
           </ChannelInfo>
         </Channel>
         <ChannelDetails>

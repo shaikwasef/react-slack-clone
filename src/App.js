@@ -1,3 +1,4 @@
+
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -16,6 +17,8 @@ export default function App() {
   const [user , setUser] = useState(JSON.parse(localStorage.getItem('user'))) ;
   const [sideBarTheme , setSideBarTheme] = useState("#3E014B");
 
+
+  //Get channels from the firebase database
   const getChannels = () => {
     db.collection('rooms').onSnapshot((snapshot)=> {
       setRooms(snapshot.docs.map((doc)=>{
@@ -26,17 +29,23 @@ export default function App() {
       ))
   })};
 
+//useEffect get the channel on each page reload
   useEffect(() => {
     getChannels();
   } , []);
 
+  //singOut on clicking the user Avatar
   const signOut = () => {
+    //authentication singOut
     auth.signOut().then(() => {
+      //removeItem from local storage
       localStorage.removeItem('user');
+      //set user to null
       setUser(null);
     })
   };
 
+  //Theme of the application passed to SideBar and Header
   const darkMode = () => {
     (sideBarTheme == "#3E014B")? setSideBarTheme("black") : setSideBarTheme("#3E014B") ;
   };

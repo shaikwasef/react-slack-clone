@@ -1,3 +1,4 @@
+//Comments
 import React from "react";
 import styled from "styled-components";
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
@@ -10,9 +11,12 @@ import {useHistory} from 'react-router-dom';
 
 function SideBar(props) {
 
+  //sideBarTheme (for dark mode)
   const theme = props.sideBarTheme ;
 
+  //addChannel to the slack platform on click of + button
   const addChannel = () => {
+    //Prompt instead of alert used for check box in alert
     const promptName = prompt("Enter channel name");
     if(promptName != null){
       db.collection('rooms').add({
@@ -21,8 +25,10 @@ function SideBar(props) {
     }
   };
 
+  //useHistory hook of react router
   const history = useHistory();
 
+  //a goToChannel function call is attached to each channel
   const goToChannel = (id) => {
     if(id){(
       history.push(`/room/${id}`))
@@ -53,8 +59,10 @@ function SideBar(props) {
             <div>
               Channels
             </div>
-            <AddIcon onClick = {addChannel}/>
+            {/*Add channel on click*/}
+            <AddIcon onClick = {addChannel} style = {{cursor : 'pointer'}}/>
           </NewChannelContainer>
+          {/*Add channel to the channel List*/}
           <ChannelsList>
             {
               props.rooms.map(item => (

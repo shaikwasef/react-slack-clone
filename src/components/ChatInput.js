@@ -4,11 +4,14 @@ import SendIcon from '@material-ui/icons/Send';
 
 function ChatInput(props){
 
+    //chat Input state
     const [input , setInput] = useState("");
 
+    //The onClick function calls the input page
     const send =(e) => {
         e.preventDefault();
         if(!input) return ;
+        //sendMessage (described in Chat) send the message data to the db for the attached channelId
         props.sendMessage(input);
         setInput("");
     }

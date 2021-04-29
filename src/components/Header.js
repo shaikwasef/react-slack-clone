@@ -1,3 +1,4 @@
+//Commented
 import React , {useState} from "react";
 import styled , {Themeprovider} from "styled-components";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
@@ -6,14 +7,19 @@ import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 
 function Header ({user ,signOut , darkMode}) {
 
+  //Set the theme of the header 
   const [headerTheme , setHeaderTheme] = useState("#350d36");
 
+  // change look of the theme on darkMode toggle
   const changeLook = () => {
+    //Set theme for header
      (headerTheme =="#350d36") ? setHeaderTheme("black") : setHeaderTheme("#350d36");
+     //call the darMode() function of header
      darkMode();
   };
 
   return (
+   /* {headerTheme is changed to black }*/
     <Container background = {headerTheme}>
       <CheckBoxWrapper>
         <CheckBox  id="checkbox" type="checkbox" onChange = {changeLook} />
