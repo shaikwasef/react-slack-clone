@@ -1,4 +1,4 @@
-
+//comments
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -29,7 +29,7 @@ export default function App() {
       ))
   })};
 
-//useEffect get the channel on each page reload
+//useEffect get the channel on first page mount
   useEffect(() => {
     getChannels();
   } , []);

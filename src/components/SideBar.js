@@ -23,6 +23,7 @@ function SideBar(props) {
         name : promptName 
       })
     }
+    
   };
 
   //useHistory hook of react router

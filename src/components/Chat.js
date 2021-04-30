@@ -16,7 +16,7 @@ function Chat(props) {
   
   const [ channel , setChannel ] = useState();
   const [messages , setMessages] = useState([]);
-
+  
   //Gets the channel data for channelID fetched using useParams()
   const getChannel = () => {
     db.collection('rooms').doc(channelId).onSnapshot((snapshot) => {

@@ -2,7 +2,7 @@
 import React from "react";
 import styled from "styled-components";
 
-//ChatMessage component to display chat messages
+//ChatMessage component to display messages
 function ChatMessage(props) {
     return (
         <Container>
